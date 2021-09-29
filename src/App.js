@@ -3,18 +3,15 @@ import "./App.css";
 
 function App() {
   const [input, setInput] = useState("");
+  const [valid, setValid] = useState(false);
 
   useMemo(() => {
     const icon = document.querySelector(".fas");
     if (icon === null) return;
     if (isNaN(input) || input === " " || input === "") {
-      icon.classList.remove("fa-check");
-      icon.classList.add("fa-times");
-      return false;
+     setValid(false);
     } else {
-      icon.classList.remove("fa-times");
-      icon.classList.add("fa-check");
-      return true;
+      setValid(true);
     }
   }, [input]);
   return (
@@ -28,7 +25,7 @@ function App() {
           placeholder="Enter number..."
         />
         <span className="icon is-small is-right">
-          <i className="fas fa-times" />
+          <i className={valid ? "fas fa-check" : "fas fa-times"} />
         </span>
       </div>
     </div>
