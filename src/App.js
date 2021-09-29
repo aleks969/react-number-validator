@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [input, setInput] = useState("");
 
-  const isNum = useMemo(() => {
+  useMemo(() => {
     const icon = document.querySelector(".fas");
     if (icon === null) return;
     if (isNaN(input) || input === " " || input === "") {
