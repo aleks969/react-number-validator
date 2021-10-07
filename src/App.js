@@ -1,24 +1,24 @@
-import React, { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [input, setInput] = useState("");
+  const [text, setText] = useState("");
   const [valid, setValid] = useState(false);
 
-  useMemo(() => 
+  useMemo(() => {
     const reg = new RegExp("^\\d+$")
     setValid(reg.test(text))
-  }, [input]);
+  }, [text])
 
   return (
     <div className="App">
       <div className="control has-icons-right">
         <input
           className="input is-large"
-          type="input"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          type="text"
           placeholder="Enter number..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
         />
         <span className="icon is-small is-right">
           <i className={valid ? "fas fa-check" : "fas fa-times"} />
