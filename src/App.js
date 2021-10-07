@@ -5,15 +5,11 @@ function App() {
   const [input, setInput] = useState("");
   const [valid, setValid] = useState(false);
 
-  useMemo(() => {
-    const icon = document.querySelector(".fas");
-    if (icon === null) return;
-    if (isNaN(input) || input === " " || input === "") {
-     setValid(false);
-    } else {
-      setValid(true);
-    }
+  useMemo(() => 
+    const reg = new RegExp("^\\d+$")
+    setValid(reg.test(text))
   }, [input]);
+
   return (
     <div className="App">
       <div className="control has-icons-right">
